@@ -1,0 +1,209 @@
+// @import "~bootstrap/scss/bootstrap";
+@import "./_tomatoIcons.css";
+@font-face {
+  font-family: "cuyabra";
+  src: url("../1. assets/fonts/cuyabra.bold.otf");
+}
+@font-face {
+  font-family: "digital";
+  src: url("../1. assets/fonts/digitalos.ttf");
+}
+// icons
+.tI-pause {
+  font-size: 11.2px;
+}
+
+* // !
+, ::before
+, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  --main-font: "cuyabra";
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--main-font);
+}
+
+button {
+  border: none;
+  border-radius: 11.2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #047004aa , 25%, #06c206ee, 75%, #047004aa)
+  , linear-gradient(90deg, #047004aa , 25%, #06c206ee, 75%, #047004aa);
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+button:hover, button:focus {
+  background: linear-gradient(90deg, #05a105aa , 25%, #07e907ee, 75%, #05a105aa)
+  , linear-gradient(180deg, #05a105aa , 25%, #07e907ee, 75%, #05a105aa);
+}
+button:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px 1px #fff ;
+}
+button:active {
+  padding: 1px 0 0 1px;
+}
+
+.topWrapper {
+  width: 100%;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f10b16;
+  color: #fff;
+  min-height: 10vh;
+}
+.title {
+  font-size: 48px;
+}
+
+.tomatoWrapper {
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#tomato {
+  background: url("../1. assets/tomato.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 70vw;
+  height: 68.13vw;
+  min-width: 398.732px;
+  min-height: 386.404px;
+  max-width: 598.098px;
+  max-height: 579.606px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 34.14% 12.85% 5.16% 20.78% 5.16% 10.52% 11.39%;
+  grid-template-columns: 8.5% 17.3% 8.65% 31.1% 8.65% 17.3% 8.5%;
+  overflow: auto;
+}
+
+span#session-length, span#break-length {
+  width: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#break, #session {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  overflow: auto;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+@media only screen and (max-width: 700px) {
+  #break, #session {
+    font-size: 12.8px;
+  }
+}
+#break {
+  grid-row: 2/3;
+  grid-column: 2/4;
+}
+#break > :nth-child(1), #session > :nth-child(1) {
+  flex-grow: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#break > :nth-child(2), #session > :nth-child(2) {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#session {
+  grid-row: 2/3;
+  grid-column: 5/7;
+}
+
+#display {
+  grid-row: 4/7;
+  grid-column: 2/7;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+}
+
+#display > div:nth-of-type(1) {//reset button
+  grid-row: 1/2;
+  grid-column: 5/6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#display > div:nth-of-type(2) {//time left
+  font-family: "digital", sans-serif;
+  grid-row: 1/4;
+  grid-column: 2/5;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+}
+#display > div:nth-of-type(2) > :nth-child(2) {
+  grid-row: 1/2;
+  grid-column: 1/4;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  border-radius: 16px;
+  border: 3px solid #048413;
+  padding-top: 9px;
+}
+@media only screen and (max-width: 600px) {
+  #display > div:nth-of-type(2) > :nth-child(2) {
+    font-size: 55px;
+  }
+}
+@media only screen and (min-width: 700px) {
+  #display > div:nth-of-type(2) > :nth-child(2) {
+    font-size: 64px;
+  }
+}
+
+#display > div:nth-of-type(2) > :nth-child(1) {// timer label
+  grid-row: 3/4;
+  grid-column: 2/3;
+  background-color: #fff;
+  color: #f10b16;
+  font-family: var(--main-font);
+  font-weight: bold;
+  font-size: 17.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+@media only screen and (min-width: 700px) {
+  #display > div:nth-of-type(2) > :nth-child(1) {
+    font-size: 32px;
+  }
+}
+#display > div:nth-of-type(3) {//reset button
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
